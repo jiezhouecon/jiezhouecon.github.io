@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 
+subtitle: Sapere Aude!
 
 profile:
   align: right
@@ -30,4 +30,5 @@ latest_posts:
 Hello! I study questions in **digital economics** and **political economy**.
 
 I am currently a Postdoctoral Fellow at <a href="https://egc.yale.edu/people/jie-zhou" target="_blank">Yale University</a>, following the completion of my Ph.D. in Economics at <a href="https://economics.mit.edu" target="_blank">Massachusetts Institute of Technology</a> in 2025. I will be joining <a href="https://www.epfl.ch/schools/cdm/" target="_blank">EPFL</a> as an Assistant Professor in 2027.
+
 
