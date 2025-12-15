@@ -26,8 +26,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I am an economist studying questions in digital economics, political economy, trade, and industrial organization.
 
-I am currently a Postdoctoral Fellow at [Yale University][https://egc.yale.edu/people/jie-zhou], following the completion of my Ph.D. in Economics at [MIT][https://economics.mit.edu]. I will be starting as an Assistant Professor of Economics at [EPFL][https://www.epfl.ch/schools/cdm/] in 2027. 
+Hello! I am an **economist** studying crucial questions at the intersection of **digital economics, political economy, trade, and industrial organization**.
 
-My approach utilizes large-scale data, field experiments, and structural modeling to provide empirical insights into how digital infrastructure, platform effects, and policy decisions impact market outcomes and the innovation landscape.
+<div class="row">
+<div class="col-sm-6">
+  <p>I am currently a Postdoctoral Fellow at the <a href="https://egc.yale.edu/people/jie-zhou" target="_blank">**Economic Growth Center and Cowles Foundation at Yale University**</a>, following the completion of my Ph.D. in Economics at <a href="https://economics.mit.edu" target="_blank">MIT</a>.</p>
+</div>
+<div class="col-sm-6">
+  <p>I will be joining <a href="https://www.epfl.ch/schools/cdm/" target="_blank">**EPFL**</a> as an Assistant Professor of Economics in 2027.</p>
+</div>
+</div>
