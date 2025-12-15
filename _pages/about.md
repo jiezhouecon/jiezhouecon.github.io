@@ -28,9 +28,6 @@ latest_posts:
 
 Hello, I'm Jie. My work explores the crucial dynamics at the nexus of digital economics, political economy, trade, and industrial organization.
 
-I am currently a Joint Postdoctoral Fellow at the Economic Growth Center and Cowles Foundation, following the completion of my Ph.D. in Economics at MIT. My approach utilizes large-scale data, field experiments, and structural modeling to provide empirical insights into how digital infrastructure, platform effects, and policy decisions impact market outcomes and the innovation landscape.
+I am currently a Joint Postdoctoral Fellow at [Yale University][https://egc.yale.edu/people/jie-zhou], following the completion of my Ph.D. in Economics at [MIT][https://economics.mit.edu]. 
 
-#Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
-#Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-#Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My approach utilizes large-scale data, field experiments, and structural modeling to provide empirical insights into how digital infrastructure, platform effects, and policy decisions impact market outcomes and the innovation landscape.
