@@ -26,7 +26,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello, I'm Jie. My work explores the crucial dynamics at the nexus of digital economics, political economy, trade, and industrial organization.
+Hello! I am an economist studying questions in digital economics, political economy, trade, and industrial organization.
 
 I am currently a Joint Postdoctoral Fellow at [Yale University][https://egc.yale.edu/people/jie-zhou], following the completion of my Ph.D. in Economics at [MIT][https://economics.mit.edu]. 
 
