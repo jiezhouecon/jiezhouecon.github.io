@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Yale University</a>. Address. Contacts. Motto. Etc.
+subtitle: 
 
 profile:
   align: right
