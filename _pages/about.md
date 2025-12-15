@@ -27,11 +27,11 @@ latest_posts:
 ---
 
 
-Hello! I am an **economist** studying crucial questions at the intersection of **digital economics, political economy, trade, and industrial organization**.
+Hello! I am an economist studying questions in **digital economics, political economy, trade, and industrial organization**.
 
 <div class="row">
 <div class="col-sm-6">
-  <p>I am currently a Postdoctoral Fellow at <a href="https://egc.yale.edu/people/jie-zhou" target="_blank">**Yale University**</a>, following the completion of my Ph.D. in Economics at <a href="https://economics.mit.edu" target="_blank">MIT</a>.</p>
+  <p>I am currently a Postdoctoral Fellow at <a href="https://egc.yale.edu/people/jie-zhou" target="_blank">Yale University</a>, following the completion of my Ph.D. in Economics at <a href="https://economics.mit.edu" target="_blank">MIT</a>.</p>
 </div>
 <div class="col-sm-6">
   <p>I will be joining <a href="https://www.epfl.ch/schools/cdm/" target="_blank">**EPFL**</a> as an Assistant Professor of Economics in 2027.</p>
