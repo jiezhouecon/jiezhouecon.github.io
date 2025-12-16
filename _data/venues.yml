@@ -1,11 +1,11 @@
 "WorkingPaper":
-  color: "#6C8EB5"
+  color: "#D4E0EF"
 
-"WorkingInProgress":
-  color: "#3B5674"
-
-"PeerReviewed":
+"WorkInProgress":
   color: "#B0E0E6"
 
+"PeerReviewed":
+  color: "#A4C4D6"
+
 "Conference":
-  color: "#6E999C"
+  color: "#B4D9DF"
