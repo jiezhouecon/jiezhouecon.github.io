@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Economist in digital economics & political economy 🦋 Sapere Aude!
+subtitle: Digital economics & political economy 🦋 Sapere Aude!
 
 profile:
   align: right
