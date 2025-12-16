@@ -2,7 +2,7 @@
 ---
 @techreport{zhou2025digitalAddiction,
   abbr={WorkInProgress},
-  title={From Choice to Compulsion: Do Online Experiments Drive Digital Addiction?},
+  title={From Choice to Compulsion},
   author={Zhou, Jie},
   abstract={Motivation: Tech firms leverage big data and artificial intelligence to reshape consumer choice environments. While this information advantage can enhance product fit, it creates a tension between beneficial personalization and behavioral manipulation. 
   Method: This paper investigates this trade-off by analyzing the impact of online experimentation (A/B testing) technologies on digital addiction. We combine panel data on app-specific testing intensity with individual-level usage of a self-control app to measure digital addiction.
@@ -12,6 +12,7 @@
   year={2025},
   selected={true},
   pdf={},
+  additional_info={*AI+Economics Workshop (ETHZ, 2025)*},
   preview={digitalAddiction_temporalTrend.png}
 } 
 
@@ -25,6 +26,14 @@
   pdf={},
   preview={pingLocation_popDist.png}
 } 
+
+@inproceedings{cheng2023adaptive,
+  title={An Adaptive Randomization Algorithm for Online Controlled Experiments},
+  author={Cheng, Daxi and Xie, Huizhi and Jin, Yaran and Zhang, Lu and Zhou, Jie},
+  abstract={Internet companies extensively utilize hash-based bucket systems for scalable A/B testing, but this method suffers from "carryover effects" where previous experiments influence the outcomes of subsequent ones. While a two-level randomization design can mitigate these effects by introducing a new random factor for treatment assignment, it does not guarantee improved variance or traffic savings. This paper investigates the optimal conditions for transitioning from a one-level to a two-level design by analyzing 2,685 experiments to confirm the prevalence of carryover effects and examining the theoretical ratio of variances, known as the "design effect." The study concludes that the two-level design is more efficient when the intraclass correlation coefficient exceeds zero, with the marginal benefit of this coefficient positively correlated to the mean and variance of the bucket sizes.},
+  booktitle={Conference on Digital Experimentation (CODE)},
+  year={2023}
+}
 
 @techreport{acemoglu2021political,
   abbr={WorkingPaper},
