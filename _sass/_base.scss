@@ -715,6 +715,10 @@ footer.sticky-bottom {
 
 // Publications
 
+// The venue badge and the preview thumbnail beneath it share this width, so
+// the coloured bar always lines up with the image edge. Change it in one place.
+$publication-thumb-width: 160px;
+
 .publications {
   margin-top: 2rem;
 
@@ -750,11 +754,8 @@ footer.sticky-bottom {
     li {
       margin-bottom: 1rem;
 
-      // Preview thumbnails are capped independently of the column so the
-      // venue badge above them can stay wide enough for "Work in Progress"
-      // without the image growing to match.
       .preview {
-        max-width: 160px;
+        max-width: $publication-thumb-width;
       }
 
       .abbr {
@@ -762,6 +763,7 @@ footer.sticky-bottom {
 
         abbr {
           display: inline-block;
+          max-width: $publication-thumb-width;
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
           color: var(--global-card-bg-color) !important;
