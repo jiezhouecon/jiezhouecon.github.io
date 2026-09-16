@@ -106,4 +106,10 @@ blockquote {
   p:last-child {
     margin-bottom: 0;
   }
+
+  // Biography detail paragraph, set in grey so the tagline above it leads.
+  // Links keep the theme colour via the global `a` rule.
+  .bio-detail {
+    color: var(--global-text-color-light);
+  }
 }
