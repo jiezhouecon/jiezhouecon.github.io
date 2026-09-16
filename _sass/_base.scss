@@ -761,10 +761,9 @@ footer.sticky-bottom {
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
           color: var(--global-card-bg-color) !important;
-          // Bootstrap badges default to nowrap; multi-word venue labels
-          // such as "Work in Progress" need to wrap inside the column.
-          white-space: normal;
-          line-height: 1.25;
+          // Keep multi-word venue labels such as "Work in Progress" on a
+          // single line; the badge column is sized to fit them.
+          white-space: nowrap;
 
           a {
             color: white;
