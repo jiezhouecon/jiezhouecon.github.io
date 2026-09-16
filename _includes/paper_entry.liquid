@@ -4,7 +4,7 @@
 {% assign entry = include.entry %}
 {% capture site_author %}{{ site.first_name }} {{ site.last_name }}{% endcapture %}
 <div class="row">
-  <div class="col col-sm-3 abbr">
+  <div class="col col-sm-4 abbr">
     {% if entry.abbr %}
       {% if site.data.venues[entry.abbr] %}
         {% assign venue = site.data.venues[entry.abbr] %}
@@ -38,7 +38,7 @@
           include figure.liquid
           loading="eager"
           path=entry_path
-          sizes="240px"
+          sizes="320px"
           class="preview z-depth-1 rounded"
           zoomable=true
           avoid_scaling=true

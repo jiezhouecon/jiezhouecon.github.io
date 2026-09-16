@@ -6,6 +6,8 @@ module Jekyll
       require 'digest/md5'
       require 'pathname'
 
+      @@directory_contents = {}
+
       attr_accessor :file_name, :directory
 
       def initialize(file_name:, directory: nil)
@@ -19,9 +21,14 @@ module Jekyll
 
       private
 
+      # Memoised because these filters run once per rendered page; re-reading
+      # the whole stylesheet tree ~44 times per build is wasted work.
+      # Sorted so the digest does not depend on filesystem ordering.
       def directory_files_content
-        target_path = File.join(directory, '**', '*')
-        Dir[target_path].map{|f| File.read(f) unless File.directory?(f) }.join
+        @@directory_contents[directory] ||= begin
+          target_path = File.join(directory, '**', '*')
+          Dir[target_path].sort.map { |f| File.read(f) unless File.directory?(f) }.join
+        end
       end
 
       def file_content
@@ -43,7 +50,7 @@ module Jekyll
     end
 
     def bust_css_cache(file_name)
-      CacheDigester.new(file_name: file_name, directory: 'assets/_sass').digest!
+      CacheDigester.new(file_name: file_name, directory: '_sass').digest!
     end
   end
 end
