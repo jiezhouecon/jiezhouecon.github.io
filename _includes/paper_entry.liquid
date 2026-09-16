@@ -7,9 +7,11 @@
   <div class="col col-sm-2 abbr">
     {% if entry.abbr %}
       {% if site.data.venues[entry.abbr] %}
+        {% assign venue = site.data.venues[entry.abbr] %}
+        {% assign venue_label = venue.name | default: entry.abbr %}
         {% assign venue_style = null %}
-        {% if site.data.venues[entry.abbr].color != blank %}
-          {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+        {% if venue.color != blank %}
+          {% assign venue_style = venue.color | prepend: 'style="background-color:' | append: '"' %}
         {% endif %}
         <abbr
           class="badge rounded w-100"
@@ -17,10 +19,10 @@
             {{- venue_style -}}
           {% endif %}
         >
-          {% if site.data.venues[entry.abbr].url %}
-            <a href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
+          {% if venue.url %}
+            <a href="{{ venue.url }}">{{ venue_label }}</a>
           {% else %}
-            <div>{{ entry.abbr }}</div>
+            <div>{{ venue_label }}</div>
           {% endif %}
         </abbr>
       {% else %}

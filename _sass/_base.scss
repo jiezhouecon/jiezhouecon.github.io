@@ -246,8 +246,7 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-image: linear-gradient(rgba(100, 150, 200, 0.6), rgba(100, 150, 200, 0.6)),
-    url('../img/monet-water-lilies.png');
+  background-image: linear-gradient(rgba(100, 150, 200, 0.6), rgba(100, 150, 200, 0.6)), url("../img/monet-water-lilies.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -762,6 +761,10 @@ footer.sticky-bottom {
           background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
           color: var(--global-card-bg-color) !important;
+          // Bootstrap badges default to nowrap; multi-word venue labels
+          // such as "Work in Progress" need to wrap inside the column.
+          white-space: normal;
+          line-height: 1.25;
 
           a {
             color: white;

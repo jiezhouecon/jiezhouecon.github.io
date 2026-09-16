@@ -1,10 +1,20 @@
+# Venue badges shown beside each paper on the research page.
+#
+# The key is the identifier used in the `abbr` field of _data/papers.yml.
+# `name`  optional label shown on the badge; the key is used when omitted.
+# `color` badge background.
+# `url`   optional link wrapped around the label.
+
 "WorkingPaper":
+  name: "Working Paper"
   color: "#D4E0EF"
 
 "WorkInProgress":
+  name: "Work in Progress"
   color: "#B0E0E6"
 
 "PeerReviewed":
+  name: "Peer Reviewed"
   color: "#A4C4D6"
 
 "Conference":
