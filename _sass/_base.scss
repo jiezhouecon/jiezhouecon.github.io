@@ -246,7 +246,8 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background: linear-gradient(135deg, rgba(100, 150, 200, 0.7) 0%, rgba(120, 180, 220, 0.7) 50%, rgba(80, 140, 190, 0.7) 100%);
+  background-image: linear-gradient(rgba(100, 150, 200, 0.6), rgba(100, 150, 200, 0.6)),
+    url('../img/monet-water-lilies.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
