@@ -93,3 +93,17 @@ blockquote {
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+// Home page bio: smaller and more tightly set than body copy
+.about-bio {
+  font-size: 0.95rem;
+  line-height: 1.45;
+
+  p {
+    margin-bottom: 0.6rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
