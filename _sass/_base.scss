@@ -246,6 +246,11 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/The_Japanese_Footbridge_%281899%2C_Claude_Monet%29.jpg/1200px-The_Japanese_Footbridge_%281899%2C_Claude_Monet%29.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   background-color: var(--global-bg-color);
   opacity: 0.95;
 }
