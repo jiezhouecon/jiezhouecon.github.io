@@ -1,0 +1,27 @@
+{% comment %}
+  Lists the papers in _data/papers.yml, grouped by year (newest first).
+  Pass selected_only=true to show only entries marked `selected: true`, ungrouped.
+  Markup mirrors what jekyll-scholar used to emit so the existing CSS,
+  abstract toggle (common.js) and filter box (bibsearch.js) keep working.
+{% endcomment %}
+{% if include.selected_only %}
+  <ol class="bibliography">
+    {% for entry in site.data.papers %}
+      {% if entry.selected == true %}
+        <li>{% include paper_entry.liquid entry=entry %}</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+{% else %}
+  {% assign years = site.data.papers | map: 'year' | uniq | sort | reverse %}
+  {% for year in years %}
+    <h2 class="bibliography">{{ year }}</h2>
+    <ol class="bibliography">
+      {% for entry in site.data.papers %}
+        {% if entry.year == year %}
+          <li>{% include paper_entry.liquid entry=entry %}</li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endfor %}
+{% endif %}
