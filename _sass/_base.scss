@@ -750,7 +750,11 @@ footer.sticky-bottom {
     li {
       margin-bottom: 1rem;
 
+      // Preview thumbnails are capped independently of the column so the
+      // venue badge above them can stay wide enough for "Work in Progress"
+      // without the image growing to match.
       .preview {
+        max-width: 160px;
       }
 
       .abbr {
