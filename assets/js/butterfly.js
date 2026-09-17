@@ -33,6 +33,11 @@
   var lastFrame = 0;
   var running = false;
 
+  // Where it launched from, and whether that glyph has been swapped yet.
+  var launchedFrom = null;
+  var perchSwapped = false;
+  var PERCH_CLEARANCE = 48; // px; comfortably more than the butterfly is wide
+
   function bounds() {
     return {
       left: HALF_W,
@@ -71,6 +76,7 @@
     if (from) {
       x = Math.min(Math.max(from.x, b.left), b.right);
       y = Math.min(Math.max(from.y, b.top), b.bottom);
+      launchedFrom = { x: x, y: y };
       // Leave roughly upward, and let the speed easing do the accelerating so
       // it drifts off the text rather than darting away from it.
       heading = -Math.PI / 2 + (Math.random() - 0.5);
@@ -82,6 +88,18 @@
       speed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
     }
     targetSpeed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
+  }
+
+  // Once the butterfly has left, the tagline is a book rather than a gap.
+  // Fading out, swapping, then fading back keeps the change from snapping.
+  function swapPerch() {
+    var perch = document.getElementById("butterfly-perch");
+    if (!perch) return;
+    perch.classList.add("is-swapping");
+    window.setTimeout(function () {
+      perch.textContent = "\uD83D\uDCD6"; // book
+      perch.classList.remove("is-swapping");
+    }, 420);
   }
 
   function step(dt) {
@@ -117,6 +135,14 @@
     // A hard clamp in case a resize leaves it outside the new viewport.
     x = Math.min(Math.max(x, b.left), b.right);
     y = Math.min(Math.max(y, b.top), b.bottom);
+
+    if (!perchSwapped && launchedFrom) {
+      var gone = Math.sqrt((x - launchedFrom.x) * (x - launchedFrom.x) + (y - launchedFrom.y) * (y - launchedFrom.y));
+      if (gone > PERCH_CLEARANCE) {
+        perchSwapped = true;
+        swapPerch();
+      }
+    }
 
     // The artwork points up, so a heading of -90 degrees needs no rotation.
     var degrees = (heading * 180) / Math.PI + 90;
