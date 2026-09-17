@@ -1,0 +1,74 @@
+/*******************************************************************************
+ * Decorative butterfly
+ * Markup in _includes/butterfly.liquid, motion in assets/js/butterfly.js.
+ ******************************************************************************/
+
+#butterfly {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 32px;
+  // Above page content, below the fixed navbar (1030) and any modal.
+  z-index: 1000;
+  // Never intercept a click, a hover or a text selection.
+  pointer-events: none;
+  // JS writes translate3d + rotate here; start offscreen so the first painted
+  // frame is never a flash in the corner.
+  transform: translate3d(-200px, -200px, 0);
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  .bf-body {
+    fill: #2f4f7a;
+  }
+
+  .bf-antennae path {
+    fill: none;
+    stroke: #2f4f7a;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .bf-wing {
+    transform-box: view-box;
+    transform-origin: 60px 56px;
+    animation: butterfly-flap 0.32s ease-in-out infinite alternate;
+  }
+
+  .bf-wing-upper,
+  .bf-wing-lower {
+    fill: url(#butterfly-wing);
+    stroke: #2f4f7a;
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+  }
+
+  .bf-wing-lower {
+    opacity: 0.9;
+  }
+}
+
+// Wings fold toward the body. Both pairs pivot on the same point, so the one
+// keyframe set drives both.
+@keyframes butterfly-flap {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.28);
+  }
+}
+
+// Anything that flies across the screen is exactly what this query is for.
+// The script also bails out, so this is belt and braces.
+@media (prefers-reduced-motion: reduce) {
+  #butterfly {
+    display: none;
+  }
+}
