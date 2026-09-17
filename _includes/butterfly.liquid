@@ -1,43 +1,17 @@
 {% comment %}
-  A small blue butterfly that wanders across the viewport.
-  Animated by assets/js/butterfly.js, styled in _sass/_butterfly.scss.
-  Toggle with `enable_butterfly` in _config.yml.
+  A butterfly emoji that wanders across the viewport, flapping as it goes.
 
-  aria-hidden and pointer-events:none keep it out of the accessibility tree
-  and out of the way of every control on the page.
+  The emoji is a single glyph, so its wings cannot be animated directly. It is
+  drawn twice instead: one copy clipped to its left half, one to its right.
+  Both fold toward the shared centre line, which is where the body sits, so
+  the wings beat while the body stays put.
+
+  Motion: assets/js/butterfly.js. Styles: _sass/_butterfly.scss.
+  Toggle with `enable_butterfly` in _config.yml.
 {% endcomment %}
 {% if site.enable_butterfly %}
   <div id="butterfly" aria-hidden="true">
-    <svg viewBox="0 0 120 100" width="100%" height="100%" focusable="false">
-      <defs>
-        <linearGradient id="butterfly-wing" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#9ec4e8"></stop>
-          <stop offset="55%" stop-color="#6d97cd"></stop>
-          <stop offset="100%" stop-color="#3f6ba6"></stop>
-        </linearGradient>
-      </defs>
-
-      <!-- Antennae -->
-      <g class="bf-antennae">
-        <path d="M58 40 C54 30 48 24 42 21"></path>
-        <path d="M62 40 C66 30 72 24 78 21"></path>
-      </g>
-
-      <!-- Wings. Both groups pivot on the body, so one flap animation serves
-           both; the right pair simply mirrors the left shapes. -->
-      <g class="bf-wing">
-        <path class="bf-wing-upper" d="M60 47 C50 22 26 8 15 21 C5 33 22 50 60 55 Z"></path>
-        <path class="bf-wing-lower" d="M60 55 C42 58 27 69 34 83 C41 95 56 80 60 61 Z"></path>
-      </g>
-      <g class="bf-wing">
-        <g transform="translate(120,0) scale(-1,1)">
-          <path class="bf-wing-upper" d="M60 47 C50 22 26 8 15 21 C5 33 22 50 60 55 Z"></path>
-          <path class="bf-wing-lower" d="M60 55 C42 58 27 69 34 83 C41 95 56 80 60 61 Z"></path>
-        </g>
-      </g>
-
-      <!-- Body -->
-      <ellipse class="bf-body" cx="60" cy="58" rx="3.4" ry="18"></ellipse>
-    </svg>
+    <span class="bf-wing bf-wing--left">🦋</span>
+    <span class="bf-wing bf-wing--right">🦋</span>
   </div>
 {% endif %}
