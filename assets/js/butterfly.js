@@ -33,13 +33,17 @@
   var lastFrame = 0;
   var running = false;
 
-  // Where it launched from, and whether that glyph has been swapped yet.
   var launchedFrom = null;
-  var perchSwapped = false;
-  // Swap while the flyer still covers the glyph, so the change is hidden and
-  // the butterfly appears to lift off a book that was there all along. Waiting
-  // until it is clear would show the tagline changing on its own.
-  var PERCH_CLEARANCE = 8;
+
+  // Let it sit on the book before leaving, so the reader sees it resting there
+  // rather than catching only the departure.
+  var REST_MS = 3200;
+
+  // The perched glyph is drawn at the tagline's scale, the flyer at its own.
+  // Taking off at the perched size and growing into full size turns what was
+  // an instant doubling into the butterfly climbing toward the reader.
+  var scale = 1;
+  var GROWTH = 0.035; // per frame, eased
 
   function bounds() {
     return {
@@ -75,6 +79,18 @@
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   }
 
+  // Both elements draw the same glyph, so their rendered sizes are in the same
+  // ratio as their font sizes.
+  function handoffScale() {
+    var perch = document.getElementById("butterfly-perch");
+    var glyph = perch && perch.querySelector(".perch-glyph--butterfly");
+    if (!glyph || !window.getComputedStyle) return 1;
+    var a = parseFloat(window.getComputedStyle(glyph).fontSize);
+    var b = parseFloat(window.getComputedStyle(el).fontSize);
+    if (!a || !b) return 1;
+    return Math.min(1, a / b);
+  }
+
   function reset() {
     var b = bounds();
     var from = perchPoint();
@@ -87,11 +103,13 @@
       // it drifts off the text rather than darting away from it.
       heading = -Math.PI / 2 + (Math.random() - 0.5);
       speed = 0.05;
+      scale = handoffScale();
     } else {
       x = b.left + Math.random() * (b.right - b.left);
       y = b.top + Math.random() * (b.bottom - b.top);
       heading = Math.random() * TAU;
       speed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
+      scale = 1;
     }
     targetSpeed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
   }
@@ -138,17 +156,20 @@
     x = Math.min(Math.max(x, b.left), b.right);
     y = Math.min(Math.max(y, b.top), b.bottom);
 
-    if (!perchSwapped && launchedFrom) {
-      var gone = Math.sqrt((x - launchedFrom.x) * (x - launchedFrom.x) + (y - launchedFrom.y) * (y - launchedFrom.y));
-      if (gone > PERCH_CLEARANCE) {
-        perchSwapped = true;
-        swapPerch();
-      }
-    }
+    scale += (1 - scale) * Math.min(1, GROWTH * dt);
 
     // The artwork points up, so a heading of -90 degrees needs no rotation.
     var degrees = (heading * 180) / Math.PI + 90;
-    el.style.transform = "translate3d(" + (x - HALF_W).toFixed(1) + "px," + (y - HALF_H).toFixed(1) + "px,0) rotate(" + degrees.toFixed(1) + "deg)";
+    el.style.transform =
+      "translate3d(" +
+      (x - HALF_W).toFixed(1) +
+      "px," +
+      (y - HALF_H).toFixed(1) +
+      "px,0) rotate(" +
+      degrees.toFixed(1) +
+      "deg) scale(" +
+      scale.toFixed(3) +
+      ")";
   }
 
   function frame(now) {
@@ -198,16 +219,33 @@
   function init() {
     reset();
     step(0);
-    // Add the class on the next frame so the opacity transition actually runs
-    // instead of being collapsed into the initial paint.
-    window.requestAnimationFrame(function () {
+
+    if (launchedFrom) {
+      // One frame, no fades: the flyer takes the perched glyph's exact place,
+      // size and opacity, and that glyph goes at the same moment. Anything
+      // gradual here shows two butterflies at once.
+      el.classList.add("is-handoff");
       el.classList.add("is-visible");
-    });
+      swapPerch();
+    } else {
+      // Nothing to hand off from, so ease it in on the next frame; setting the
+      // class in this one would collapse into the first paint.
+      window.requestAnimationFrame(function () {
+        el.classList.add("is-visible");
+      });
+    }
     start();
+  }
+
+  function begin() {
+    // Rest on the book first. Measuring is deferred until take-off too, so a
+    // reader who scrolls in the meantime still sees it leave the right place.
+    if (document.getElementById("butterfly-perch")) window.setTimeout(init, REST_MS);
+    else init();
   }
 
   // Wait for load: the profile photo above the tagline settles the layout, and
   // measuring the perch before that would launch from the wrong place.
-  if (document.readyState === "complete") init();
-  else window.addEventListener("load", init, { once: true });
+  if (document.readyState === "complete") begin();
+  else window.addEventListener("load", begin, { once: true });
 })();

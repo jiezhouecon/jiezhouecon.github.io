@@ -32,6 +32,12 @@ $butterfly-size: 34px;
   &.is-visible {
     opacity: 0.75;
   }
+
+  // Taking over from the perched glyph: already in the right place at the
+  // right size, so a fade would only reveal that there are two of them.
+  &.is-handoff {
+    transition: none;
+  }
 }
 
 // Two copies of the glyph, each showing one half. Both pivot on the centre
@@ -83,11 +89,12 @@ $butterfly-size: 34px;
     position: absolute;
     left: 0;
     width: 100%;
+    // Matches the flyer, so the handoff between them is invisible.
+    opacity: 0.75;
     // Sitting on the book's top edge, and a little smaller so the two read as
     // one object at a glance rather than as overlapping text.
     top: -0.34em;
     font-size: 0.78em;
-    transition: opacity 0.18s ease;
   }
 
   &.has-flown .perch-glyph--butterfly {
