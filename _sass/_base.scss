@@ -312,7 +312,10 @@ ul.task-list input[type="checkbox"] {
 
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    // Was `bolder`, which computes to 900 now that every nav link is 700.
+    // Inter is only loaded to 700, so 900 would be synthesised. The current
+    // page is already marked by colour.
+    font-weight: 700;
     color: var(--global-theme-color);
 
     &:hover {

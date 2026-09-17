@@ -65,6 +65,15 @@ h4 {
   letter-spacing: 0.02em;
 }
 
+// Page links only. The search affordance also carries .nav-link but is a
+// <span>, and bolding it would give the "ctrl k" hint more weight than the
+// navigation itself. Capitalisation is display-only; page titles stay
+// lowercase in their front matter.
+.navbar-nav .nav-item a.nav-link {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
 // Subtitles and quotations: italic serif, the Plantin role
 .post-description,
 .post-header .desc {
