@@ -53,12 +53,35 @@
     return d > Math.PI ? d - TAU : d;
   }
 
+  // The home page marks the butterfly in its tagline as a perch. Starting
+  // there makes the flyer look like it peels off the text and leaves. Other
+  // pages have no perch, so they start somewhere at random.
+  function perchPoint() {
+    var perch = document.getElementById("butterfly-perch");
+    if (!perch) return null;
+    var r = perch.getBoundingClientRect();
+    if (!r.width || !r.height) return null;
+    return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+  }
+
   function reset() {
     var b = bounds();
-    x = b.left + Math.random() * (b.right - b.left);
-    y = b.top + Math.random() * (b.bottom - b.top);
-    heading = Math.random() * TAU;
-    speed = targetSpeed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
+    var from = perchPoint();
+
+    if (from) {
+      x = Math.min(Math.max(from.x, b.left), b.right);
+      y = Math.min(Math.max(from.y, b.top), b.bottom);
+      // Leave roughly upward, and let the speed easing do the accelerating so
+      // it drifts off the text rather than darting away from it.
+      heading = -Math.PI / 2 + (Math.random() - 0.5);
+      speed = 0.05;
+    } else {
+      x = b.left + Math.random() * (b.right - b.left);
+      y = b.top + Math.random() * (b.bottom - b.top);
+      heading = Math.random() * TAU;
+      speed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
+    }
+    targetSpeed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
   }
 
   function step(dt) {
@@ -144,8 +167,19 @@
     HALF_H = el.offsetHeight / 2 || HALF_H;
   });
 
-  reset();
-  step(0);
-  el.classList.add("is-visible");
-  start();
+  function init() {
+    reset();
+    step(0);
+    // Add the class on the next frame so the opacity transition actually runs
+    // instead of being collapsed into the initial paint.
+    window.requestAnimationFrame(function () {
+      el.classList.add("is-visible");
+    });
+    start();
+  }
+
+  // Wait for load: the profile photo above the tagline settles the layout, and
+  // measuring the perch before that would launch from the wrong place.
+  if (document.readyState === "complete") init();
+  else window.addEventListener("load", init, { once: true });
 })();
