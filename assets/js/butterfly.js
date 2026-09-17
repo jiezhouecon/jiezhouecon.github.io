@@ -67,7 +67,10 @@
   function perchPoint() {
     var perch = document.getElementById("butterfly-perch");
     if (!perch) return null;
-    var r = perch.getBoundingClientRect();
+    // Measure the perched butterfly, not the whole slot: it sits above the
+    // book, so the slot's centre would launch the flyer from the book.
+    var target = perch.querySelector(".perch-glyph--butterfly") || perch;
+    var r = target.getBoundingClientRect();
     if (!r.width || !r.height) return null;
     return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
   }

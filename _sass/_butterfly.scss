@@ -67,39 +67,31 @@ $butterfly-size: 34px;
   }
 }
 
-// The tagline glyph the butterfly launches from. The book sits stacked behind
-// the butterfly and the two cross-fade, so the slot is never momentarily empty
-// the way swapping one glyph for another would leave it.
+// The tagline shows a butterfly resting on a book. The book sits in the line
+// and sets the slot width; the butterfly is lifted out of flow and placed on
+// top of it, so it reads as perched rather than as two glyphs colliding.
 //
-// The change runs while the flyer is still over the glyph, so what the reader
-// sees is a butterfly lifting off a book that was underneath it all along.
+// When the flyer takes off, only this butterfly fades. The book was there from
+// the start and simply remains, and because it never leaves the flow the line
+// does not reflow.
 #butterfly-perch {
   position: relative;
   display: inline-block;
-  min-width: 1.25em;
   text-align: center;
 
-  .perch-glyph {
+  .perch-glyph--butterfly {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    // Sitting on the book's top edge, and a little smaller so the two read as
+    // one object at a glance rather than as overlapping text.
+    top: -0.34em;
+    font-size: 0.78em;
     transition: opacity 0.18s ease;
   }
 
-  // Taken out of flow so it cannot widen the line or shift the text.
-  .perch-glyph--book {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  &.has-flown .perch-glyph--butterfly {
     opacity: 0;
-  }
-
-  &.has-flown {
-    .perch-glyph--butterfly {
-      opacity: 0;
-    }
-
-    .perch-glyph--book {
-      opacity: 1;
-    }
   }
 }
 

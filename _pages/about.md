@@ -26,6 +26,6 @@ latest_posts:
 
 <p style="color: #999999; font-size: 0.9em; margin-bottom: 5px;"> [周婕, pronounced roughly as "JEE-EH JŌ"]</p>
 
-<p class="bio-tagline">Digital Economy <span id="butterfly-perch"><span class="perch-glyph perch-glyph--butterfly">🦋</span><span class="perch-glyph perch-glyph--book">📖</span></span> Political Economy</p>
+<p class="bio-tagline">Digital Economy <span id="butterfly-perch"><span class="perch-glyph perch-glyph--book">📖</span><span class="perch-glyph perch-glyph--butterfly">🦋</span></span> Political Economy</p>
 
 <p class="bio-detail">I am currently a Postdoctoral Fellow at <a href="https://egc.yale.edu/people/jie-zhou" target="_blank">Yale University</a>, following the completion of my Ph.D. in Economics at <a href="https://economics.mit.edu" target="_blank">Massachusetts Institute of Technology</a> in 2025. I will be joining <a href="https://www.epfl.ch/schools/cdm/" target="_blank">EPFL</a> as an Assistant Professor in 2027.</p>
