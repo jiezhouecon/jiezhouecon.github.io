@@ -25,7 +25,7 @@ $butterfly-size: 34px;
   transform: translate3d(-200px, -200px, 0);
   will-change: transform;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.35s ease;
 
   // Slightly translucent, so it reads as decoration passing over the page
   // rather than a solid object sitting on top of the text.
@@ -67,17 +67,39 @@ $butterfly-size: 34px;
   }
 }
 
-// The tagline emoji the butterfly launches from. Once it has flown clear the
-// script swaps the glyph, fading out and back so the change is not abrupt.
-// Fixed width keeps the line from reflowing when the glyph changes.
+// The tagline glyph the butterfly launches from. The book sits stacked behind
+// the butterfly and the two cross-fade, so the slot is never momentarily empty
+// the way swapping one glyph for another would leave it.
+//
+// The change runs while the flyer is still over the glyph, so what the reader
+// sees is a butterfly lifting off a book that was underneath it all along.
 #butterfly-perch {
+  position: relative;
   display: inline-block;
   min-width: 1.25em;
   text-align: center;
-  transition: opacity 0.4s ease;
 
-  &.is-swapping {
+  .perch-glyph {
+    transition: opacity 0.18s ease;
+  }
+
+  // Taken out of flow so it cannot widen the line or shift the text.
+  .perch-glyph--book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
+  }
+
+  &.has-flown {
+    .perch-glyph--butterfly {
+      opacity: 0;
+    }
+
+    .perch-glyph--book {
+      opacity: 1;
+    }
   }
 }
 

@@ -36,7 +36,10 @@
   // Where it launched from, and whether that glyph has been swapped yet.
   var launchedFrom = null;
   var perchSwapped = false;
-  var PERCH_CLEARANCE = 48; // px; comfortably more than the butterfly is wide
+  // Swap while the flyer still covers the glyph, so the change is hidden and
+  // the butterfly appears to lift off a book that was there all along. Waiting
+  // until it is clear would show the tagline changing on its own.
+  var PERCH_CLEARANCE = 8;
 
   function bounds() {
     return {
@@ -90,16 +93,12 @@
     targetSpeed = MIN_SPEED + Math.random() * (MAX_SPEED - MIN_SPEED);
   }
 
-  // Once the butterfly has left, the tagline is a book rather than a gap.
-  // Fading out, swapping, then fading back keeps the change from snapping.
+  // Reveal the book the butterfly was sitting on. Both glyphs are already in
+  // the page; this only cross-fades between them, so there is no gap and no
+  // timer to keep in step with the animation.
   function swapPerch() {
     var perch = document.getElementById("butterfly-perch");
-    if (!perch) return;
-    perch.classList.add("is-swapping");
-    window.setTimeout(function () {
-      perch.textContent = "\uD83D\uDCD6"; // book
-      perch.classList.remove("is-swapping");
-    }, 420);
+    if (perch) perch.classList.add("has-flown");
   }
 
   function step(dt) {
