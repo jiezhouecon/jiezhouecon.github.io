@@ -19,6 +19,8 @@ role:
 #   - label: Syllabus
 #     url: unstructured-data-syllabus.pdf
 materials:
+  - label: Syllabus
+    url: "https://www.dropbox.com/scl/fi/ag7ds39gsyo2zh3c6w1uz/draft_ai_v2.pdf?rlkey=yswpdqp4ceomunhl2c7rktzkd&dl=1"
 # One entry per week. The table appears once this list has entries.
 #   - week: 1
 #     topic: Why unstructured data, and what can go wrong
