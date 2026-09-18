@@ -907,6 +907,17 @@ $publication-thumb-width: 160px;
   }
 }
 
+// Teaching page: course entries share the research page layout above. Their
+// titles link to the course page but keep the research title's plain look.
+.courses ol.bibliography li .title a {
+  color: inherit;
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;

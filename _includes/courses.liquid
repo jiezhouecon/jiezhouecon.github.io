@@ -1,0 +1,37 @@
+{% comment %}
+  Lists the courses in _courses/ in the same layout as the research page.
+  Courses with a `year` are grouped under year headings, newest first; any
+  without one follow, ungrouped. Markup matches papers.liquid so the research
+  page styles and the abstract toggle apply unchanged.
+{% endcomment %}
+{% assign years = '' | split: '' %}
+{% assign has_undated = false %}
+{% for course in site.courses %}
+  {% if course.year %}
+    {% assign years = years | push: course.year %}
+  {% else %}
+    {% assign has_undated = true %}
+  {% endif %}
+{% endfor %}
+{% assign years = years | uniq | sort | reverse %}
+
+{% for year in years %}
+  <h2 class="bibliography">{{ year }}</h2>
+  <ol class="bibliography">
+    {% for course in site.courses %}
+      {% if course.year == year %}
+        <li>{% include course_entry.liquid course=course %}</li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+{% endfor %}
+
+{% if has_undated %}
+  <ol class="bibliography">
+    {% for course in site.courses %}
+      {% unless course.year %}
+        <li>{% include course_entry.liquid course=course %}</li>
+      {% endunless %}
+    {% endfor %}
+  </ol>
+{% endif %}

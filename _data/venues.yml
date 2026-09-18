@@ -4,6 +4,9 @@
 # `name`  optional label shown on the badge; the key is used when omitted.
 # `color` badge background.
 # `url`   optional link wrapped around the label.
+#
+# Course levels on the Teaching page (e.g. PhD) use the same lookup, so a key
+# named after a level colours that badge; unlisted levels get a default.
 
 "WorkingPaper":
   name: "Working Paper"

@@ -7,6 +7,10 @@ description:
 institution:
 # e.g. Spring 2027
 term:
+# Four-digit year; courses with a year are grouped under it on the Teaching page
+year:
+# Thumbnail shown beside the entry, a file in assets/img/course_preview/ or a full URL
+preview:
 # e.g. PhD
 level:
 # e.g. Instructor

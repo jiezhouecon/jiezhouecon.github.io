@@ -7,12 +7,10 @@ nav: true
 nav_order: 6
 ---
 
-<div class="courses">
-{% for course in site.courses %}
-  <h3><a href="{{ course.url | relative_url }}">{{ course.title }}</a></h3>
-  {% include course_meta.liquid course=course %}
-  {% if course.description %}
-    <p>{{ course.description }}</p>
-  {% endif %}
-{% endfor %}
+<!-- _pages/teaching.md -->
+
+<div class="publications courses">
+
+{% include courses.liquid %}
+
 </div>
