@@ -35,6 +35,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
+            },},{id: "courses-empirical-research-with-unstructured-data",
+          title: 'Empirical Research with Unstructured Data',
+          description: "",
+          section: "Courses",handler: () => {
+              window.location.href = "/teaching/empirical-research-with-unstructured-data/";
             },},{id: "news-a-simple-inline-announcement",
           title: 'A simple inline announcement.',
           description: "",
