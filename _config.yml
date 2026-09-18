@@ -137,6 +137,9 @@ newsletter:
 collections:
   books:
     output: true
+  courses:
+    output: true
+    permalink: /teaching/:name/
   news:
     defaults:
       layout: post
@@ -212,6 +215,11 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: course
 
 sass:
   style: compressed

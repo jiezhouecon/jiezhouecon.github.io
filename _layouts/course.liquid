@@ -1,0 +1,59 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+    {% include course_meta.liquid course=page %}
+    {% if page.materials and page.materials.size > 0 %}
+      <p class="course-materials">
+        {% for item in page.materials %}
+          {% if item.url contains '://' %}
+            {% assign href = item.url %}
+          {% else %}
+            {% assign href = item.url | prepend: '/assets/pdf/' | relative_url %}
+          {% endif %}
+          <a href="{{ href }}">{{ item.label }}</a>
+          {%- unless forloop.last %} · {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  </header>
+
+  <article>
+    {{ content }}
+
+    {% if page.schedule and page.schedule.size > 0 %}
+      {% assign has_notes = false %}
+      {% for session in page.schedule %}
+        {% if session.notes %}{% assign has_notes = true %}{% endif %}
+      {% endfor %}
+      <h2>Schedule</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Week</th>
+            <th scope="col">Topic</th>
+            {% if has_notes %}
+              <th scope="col">Readings</th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for session in page.schedule %}
+            <tr>
+              <td>{{ session.week }}</td>
+              <td>{{ session.topic }}</td>
+              {% if has_notes %}
+                <td>{{ session.notes | default: '' | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </article>
+</div>

@@ -1,0 +1,13 @@
+{% comment %}
+  One line of course metadata, e.g. "EPFL · Spring 2027 · PhD · Instructor".
+  Only fields that are set are shown, so an unfilled course renders nothing.
+  Pass the course document as `course`.
+{% endcomment %}
+{% assign parts = '' | split: '' %}
+{% if include.course.institution %}{% assign parts = parts | push: include.course.institution %}{% endif %}
+{% if include.course.term %}{% assign parts = parts | push: include.course.term %}{% endif %}
+{% if include.course.level %}{% assign parts = parts | push: include.course.level %}{% endif %}
+{% if include.course.role %}{% assign parts = parts | push: include.course.role %}{% endif %}
+{% if parts.size > 0 %}
+  <p class="post-meta">{{ parts | join: ' · ' }}</p>
+{% endif %}
