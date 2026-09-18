@@ -18,6 +18,8 @@ role:
 materials:
   - label: Syllabus
     url: "https://www.dropbox.com/scl/fi/ag7ds39gsyo2zh3c6w1uz/draft_ai_v2.pdf?rlkey=yswpdqp4ceomunhl2c7rktzkd&dl=1"
+  - label: GitHub
+    url: https://github.com/jiezhouecon/ai-in-economics-yale-f26
 # One row per session, from the draft syllabus; `notes` may hold date, time and room
 schedule:
   - week: 1
