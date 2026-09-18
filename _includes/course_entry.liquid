@@ -1,7 +1,8 @@
 {% comment %}
   One course, laid out like a paper on the research page (passed as `course`).
   Left column: level badge and optional preview image. Right column: title
-  linking to the course page, institution and role, term, then buttons: the
+  linking to the course page, role, then institution and term on the small
+  grey line, then buttons: the
   overview behind "Abs" and one button per entry in `materials`.
 {% endcomment %}
 {% assign course = include.course %}
@@ -39,16 +40,17 @@
       <a href="{{ course.url | relative_url }}">{{ course.title }}</a>
     </div>
 
-    {% if course.institution or course.role %}
-      <div class="author">
-        {{ course.institution }}
-        {%- if course.institution and course.role %}, {% endif -%}
-        {{ course.role }}
-      </div>
+    {% if course.role %}
+      <div class="author">{{ course.role }}</div>
     {% endif %}
 
-    {% if course.term %}
-      <div class="periodical">{{ course.term }}</div>
+    {% comment %} Institution and term share the small grey line, as venue and year do for a paper. {% endcomment %}
+    {% if course.institution or course.term %}
+      <div class="periodical">
+        {{ course.institution }}
+        {%- if course.institution and course.term %}, {% endif -%}
+        {{ course.term }}
+      </div>
     {% endif %}
 
     <div class="links">
