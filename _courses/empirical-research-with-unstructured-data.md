@@ -3,9 +3,9 @@ layout: course
 title: Empirical Research with Unstructured Data
 # One-line subtitle under the title
 description:
-# e.g. Yale University
-institution:
-term: Fall 2026
+institution: Department of Economics, Yale University
+# e.g. Fall 2026
+term:
 # Courses with a year are grouped under it on the Teaching page
 year: 2026
 # Thumbnail beside the entry: a file in assets/img/course_preview/ or a full URL
