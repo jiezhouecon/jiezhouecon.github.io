@@ -9,7 +9,7 @@ term:
 # Courses with a year are grouped under it on the Teaching page
 year: 2026
 # Thumbnail beside the entry: a file in assets/img/course_preview/ or a full URL
-preview: syllabus-unstructured-data.png
+preview: monet-houses-of-parliament.jpg
 # Badge beside the entry, e.g. PhD
 level:
 # e.g. Instructor
