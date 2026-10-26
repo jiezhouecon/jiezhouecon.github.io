@@ -20,11 +20,13 @@ materials:
     url: "https://www.dropbox.com/scl/fi/ag7ds39gsyo2zh3c6w1uz/draft_ai_v2.pdf?rlkey=yswpdqp4ceomunhl2c7rktzkd&dl=1"
   - label: GitHub
     url: https://github.com/jiezhouecon/ai-in-economics-yale-f26
+  - label: Lecture notes
+    url: https://jiezhouecon.github.io/ai-in-economics-notes/
 # One row per session, from the draft syllabus; `notes` may hold date, time and room
 schedule:
   - week: 1
     topic: Latent Representations (Text Focused)
-    notes: Oct 30, 9–11 am, B120
+    notes: "Oct 30, 9–11 am, B120 · [Lecture notes](https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html)"
   - week: 2
     topic: LLM Agents
     notes: Nov 6, 9–11 am, B120
