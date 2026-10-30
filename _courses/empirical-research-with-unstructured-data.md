@@ -26,7 +26,7 @@ materials:
 schedule:
   - week: 1
     topic: Latent Representations (Text Focused)
-    notes: "Oct 30, 9–11 am, B120 · [Lecture notes](https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html)"
+    notes: "Oct 30, 9–11 am, B120 · [Lecture notes](https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html) · [Slides](https://jiezhouecon.github.io/ai-in-economics-notes/slides/lec1.pdf)"
   - week: 2
     topic: LLM Agents
     notes: Nov 6, 9–11 am, B120
