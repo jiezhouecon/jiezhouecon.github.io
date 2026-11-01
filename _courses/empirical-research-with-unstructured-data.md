@@ -41,7 +41,7 @@ schedule:
     when: Nov 13, 9–11 am, B120
   - week: 4
     topic: "Beyond Text: Other Modalities"
-    when: Nov 20, 9–11 am, B120
+    when: Dec 4, 9–11 am, B120
 ---
 
 The world is unstructured. Empirical research has relied on data that arrives already structured into tables, but the majority of information about economic behavior is embedded in unstructured sources such as texts, audios, or images.
