@@ -22,20 +22,26 @@ materials:
     url: https://github.com/jiezhouecon/ai-in-economics-yale-f26
   - label: Lecture notes
     url: https://jiezhouecon.github.io/ai-in-economics-notes/
-# One row per session, from the draft syllabus; `notes` may hold date, time and room
+# One row per session, from the draft syllabus; `when` holds date, time and room,
+# `materials` the session's links (same label/url form as above)
 schedule:
   - week: 1
     topic: Latent Representations (Text Focused)
-    notes: "Oct 30, 9–11 am, B120 · [Lecture notes](https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html) · [Slides](https://jiezhouecon.github.io/ai-in-economics-notes/slides/lec1.pdf)"
+    when: Oct 30, 9–11 am, B120
+    materials:
+      - label: Slides
+        url: https://jiezhouecon.github.io/ai-in-economics-notes/slides/lec1.pdf
+      - label: Lecture notes
+        url: https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html
   - week: 2
     topic: LLM Agents
-    notes: Nov 6, 9–11 am, B120
+    when: Nov 6, 9–11 am, B120
   - week: 3
     topic: Econometric Problems, Interpretability, and (Imperfect) Solutions
-    notes: Nov 13, 9–11 am, B120
+    when: Nov 13, 9–11 am, B120
   - week: 4
     topic: "Beyond Text: Other Modalities"
-    notes: Nov 20, 9–11 am, B120
+    when: Nov 20, 9–11 am, B120
 ---
 
 The world is unstructured. Empirical research has relied on data that arrives already structured into tables, but the majority of information about economic behavior is embedded in unstructured sources such as texts, audios, or images.
