@@ -42,6 +42,11 @@ h1,
   margin-bottom: 1rem;
 }
 
+// Course titles run long; this size keeps one on a single line in the 820px column
+.post-title.course-title {
+  font-size: 2.25rem;
+}
+
 h2 {
   font-size: 2rem;
 }
