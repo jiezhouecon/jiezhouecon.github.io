@@ -32,7 +32,7 @@ schedule:
     notes: Nov 6, 9–11 am, B120
   - week: 3
     topic: Econometric Problems, Interpretability, and (Imperfect) Solutions
-    notes: Nov 13, 9–11 am, A106
+    notes: Nov 13, 9–11 am, B120
   - week: 4
     topic: "Beyond Text: Other Modalities"
     notes: Nov 20, 9–11 am, B120
