@@ -1,0 +1,35 @@
+{% comment %}
+  Email sign-up row for a course page, passed the course's `signup` block as
+  `signup`. It renders nothing until both `action` (the URL the email is POSTed
+  to) and `field` (the name of the form field carrying the email) are set, so an
+  unconfigured course shows no box. For a Google Form with one short-answer
+  question: action = https://docs.google.com/forms/d/e/<FORM_ID>/formResponse,
+  field = entry.<NUMBER> (the id shown by the form's "Get pre-filled link").
+  Without JavaScript the browser posts to `action` and lands on the backend's
+  own confirmation page; with it, assets/js/course-signup.js submits in place
+  and shows the outcome in the status line. The input and button reuse the
+  theme's newsletter styles; the row layout is in _sass/_base.scss.
+{% endcomment %}
+{% assign signup = include.signup %}
+{% assign signup_action = signup.action | default: '' | strip %}
+{% assign signup_field = signup.field | default: '' | strip %}
+{% if signup_action != '' and signup_field != '' %}
+  <form class="course-signup" action="{{ signup_action }}" method="post">
+    <label class="course-signup-label" for="course-signup-email">
+      {{- signup.text | default: 'Get course announcements by email' -}}
+    </label>
+    <input
+      id="course-signup-email"
+      class="newsletter-form-input"
+      type="email"
+      name="{{ signup_field }}"
+      placeholder="{{ signup.placeholder | default: 'you@example.com' }}"
+      autocomplete="email"
+      required
+    >
+    <button type="submit" class="newsletter-form-button">
+      {{- signup.button | default: 'Sign up' -}}
+    </button>
+    <p class="course-signup-status" role="status" aria-live="polite"></p>
+  </form>
+{% endif %}

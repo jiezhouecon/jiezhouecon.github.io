@@ -22,6 +22,15 @@ materials:
     url: https://github.com/jiezhouecon/ai-in-economics-yale-f26
   - label: Lecture notes
     url: https://jiezhouecon.github.io/ai-in-economics-notes/
+# Email sign-up row under the header, for course announcements. The address is
+# POSTed to `action` in the form field named `field`; the row stays hidden until
+# both are set. For a Google Form with a single short-answer "Email" question:
+#   action: https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
+#   field: entry.<NUMBER>   (the id in the URL from the form's "Get pre-filled link")
+signup:
+  text: Get course announcements by email
+  action:
+  field:
 # One row per session, from the draft syllabus; `when` holds date, time and room,
 # `materials` the session's links (same label/url form as above)
 schedule:

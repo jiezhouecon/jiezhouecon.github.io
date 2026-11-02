@@ -321,3 +321,9 @@
 {% if site.newsletter.enabled %}
   <script defer src="{{ '/assets/js/newsletter.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
+
+{% assign signup_action = page.signup.action | default: '' | strip %}
+{% assign signup_field = page.signup.field | default: '' | strip %}
+{% if signup_action != '' and signup_field != '' %}
+  <script defer src="{{ '/assets/js/course-signup.js' | relative_url | bust_file_cache }}"></script>
+{% endif %}

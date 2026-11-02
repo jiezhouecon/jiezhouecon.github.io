@@ -918,6 +918,57 @@ $publication-thumb-width: 160px;
   }
 }
 
+// Course page: email sign-up row under the header (_includes/course_signup.liquid).
+// The input and button take the newsletter styles further down; this lays out the row.
+.course-signup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0.75rem 0 1.5rem;
+  font-size: 0.875rem;
+
+  .course-signup-label {
+    margin: 0;
+    color: var(--global-text-color-light);
+  }
+
+  .newsletter-form-input {
+    height: 38px; // same as the button
+    margin: 0;
+    max-width: 260px;
+    font-size: inherit;
+  }
+
+  .newsletter-form-button {
+    font-size: inherit;
+  }
+
+  // Status line on its own row; hidden while empty
+  .course-signup-status {
+    flex-basis: 100%;
+    margin: 0;
+    color: var(--global-text-color);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .course-signup-status-error {
+    color: var(--global-theme-color);
+  }
+
+  // After a successful sign-up only the status line remains
+  &.course-signup-done {
+    .course-signup-label,
+    .newsletter-form-input,
+    .newsletter-form-button {
+      display: none;
+    }
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
