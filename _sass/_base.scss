@@ -918,19 +918,33 @@ $publication-thumb-width: 160px;
   }
 }
 
-// Course page: email sign-up row under the header (_includes/course_signup.liquid).
-// The input and button take the newsletter styles further down; this lays out the row.
+// Course page: email sign-up callout under the header (_includes/course_signup.liquid).
+// A theme-tinted box with an accent bar so the row stands out from the page text.
+// The input and button take the newsletter styles further down; this lays out the box.
 .course-signup {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem 0.75rem;
-  margin: 0.75rem 0 1.5rem;
+  margin: 1rem 0 1.5rem;
+  padding: 0.75rem 1rem;
   font-size: 0.875rem;
+  background: var(--global-code-bg-color); // fallback where color-mix is unsupported
+  background: color-mix(in srgb, var(--global-theme-color) 12%, var(--global-bg-color));
+  border: 1px solid var(--global-theme-color);
+  border-left-width: 4px;
+  border-radius: 6px;
 
   .course-signup-label {
     margin: 0;
-    color: var(--global-text-color-light);
+    font-weight: 600;
+    color: var(--global-text-color);
+
+    .ti {
+      margin-right: 0.25rem;
+      color: var(--global-theme-color);
+      vertical-align: -0.1em;
+    }
   }
 
   .newsletter-form-input {

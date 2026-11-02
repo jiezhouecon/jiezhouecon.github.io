@@ -16,6 +16,7 @@
 {% if signup_action != '' and signup_field != '' %}
   <form class="course-signup" action="{{ signup_action }}" method="post">
     <label class="course-signup-label" for="course-signup-email">
+      <i class="ti ti-mail" aria-hidden="true"></i>
       {{- signup.text | default: 'Get course announcements by email' -}}
     </label>
     <input
