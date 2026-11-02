@@ -29,8 +29,8 @@ materials:
 #   field: entry.<NUMBER>   (the id in the URL from the form's "Get pre-filled link")
 signup:
   text: Get course announcements by email
-  action:
-  field:
+  action: https://docs.google.com/forms/d/e/1FAIpQLSf5nzmmrvmCt42Nmfd5dcl65rA7GM8UaJb7GoEoS_A9YieFYQ/formResponse
+  field: entry.1484836286
 # One row per session, from the draft syllabus; `when` holds date, time and room,
 # `materials` the session's links (same label/url form as above)
 schedule:
