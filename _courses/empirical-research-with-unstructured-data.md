@@ -44,10 +44,10 @@ schedule:
         url: https://jiezhouecon.github.io/ai-in-economics-notes/lec1.html
   - week: 2
     topic: LLM Agents
-    when: Nov 6, 9–11 am, B120
+    when: Nov 13, 9–11 am, A106
   - week: 3
     topic: Econometric Problems, Interpretability, and (Imperfect) Solutions
-    when: Nov 13, 9–11 am, A106
+    when: Nov 20, 9–11 am, B120
   - week: 4
     topic: "Beyond Text: Other Modalities"
     when: Dec 4, 9–11 am, B120
