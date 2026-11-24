@@ -45,6 +45,36 @@ body.sticky-bottom-footer {
   }
 }
 
+// Home page, tablet and wider: the photo sits flush with the right edge of the
+// content column, and each bio paragraph stays in its own column beside it, so
+// no line runs on underneath the picture. `flow-root` keeps a paragraph next
+// to the float without clipping it (the perched butterfly overflows its line).
+// On phones the photo keeps its place centred above the name.
+@media (min-width: 576px) {
+  .post > .profile {
+    width: auto;
+
+    img {
+      width: clamp(150px, 26vw, 220px);
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  .post > .profile.float-right {
+    margin-left: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .about-bio > p {
+    display: flow-root;
+  }
+}
+
+// Home page: room between the bio and the section heading that follows it.
+.about-bio + h2 {
+  margin-top: 2.75rem;
+}
+
 // TODO: redefine content layout.
 
 /******************************************************************************
