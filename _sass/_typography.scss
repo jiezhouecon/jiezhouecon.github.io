@@ -106,6 +106,19 @@ blockquote {
   font-size: 1.1rem;
 }
 
+// One pass of the bio highlight brush, at `$strength` of its full opacity.
+@function brush-stroke($strength) {
+  @return linear-gradient(
+    100deg,
+    rgba(125, 155, 201, 0) 0.5%,
+    rgba(125, 155, 201, 0.72 * $strength) 2.5%,
+    rgba(125, 155, 201, 0.48 * $strength) 6%,
+    rgba(125, 155, 201, 0.4 * $strength) 92%,
+    rgba(125, 155, 201, 0.64 * $strength) 96.5%,
+    rgba(125, 155, 201, 0) 99%
+  );
+}
+
 // Home page bio: smaller and more tightly set than body copy
 .about-bio {
   font-size: 0.95rem;
@@ -133,5 +146,27 @@ blockquote {
   .bio-detail {
     font-size: 1.03125rem;
     color: var(--global-text-color-light);
+  }
+
+  // Research focus phrase: a thin watercolour brush stroke behind dark text.
+  // Three copies of the same stroke are stacked at different heights, so the
+  // colour is deepest through the middle of the letters and feathers out above
+  // and below instead of ending in a hard edge. Each stroke is denser at both
+  // ends, like a brush pressed down and lifted. `clone` gives every wrapped
+  // line its own complete stroke. Translucent, so it works on the light and
+  // dark backgrounds alike.
+  .bio-highlight {
+    color: var(--global-text-color);
+    background-image: brush-stroke(0.3), brush-stroke(0.35), brush-stroke(0.35);
+    background-repeat: no-repeat;
+    background-size:
+      100% 66%,
+      100% 50%,
+      100% 34%;
+    background-position: 0 64%;
+    padding: 0 0.4em;
+    margin: 0 -0.2em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }
